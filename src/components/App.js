@@ -5,10 +5,10 @@ const App = () => {
   const [timer, setTimer] = useState();
 
   const handleClick = (event) => {
-    let inputValue = parseInt(event.target.value, 10);
+    let inputValue = event.target.value;
     if (event.keyCode === 13) {
-      if (inputValue >= 0) {
-        setTimer(inputValue);
+      if (!isNaN(inputValue) && parseInt(inputValue, 10) >= 0) {
+        setTimer(parseInt(inputValue));
       } else {
         setTimer(0);
       }
